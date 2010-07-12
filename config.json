@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "resize",
+    "syntaxhighlighter",
+    "iphone"
+  ],
+  "transitions": "slide",
+  "title": "rack-bundle",
+  "theme": "slidedown",
+  "slides": [
+    "welcome.html",
+    "amongmany.html",
+    "onefineday.html",
+    "fine.html"
+  ]
+}

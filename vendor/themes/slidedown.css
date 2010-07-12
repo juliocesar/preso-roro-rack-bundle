@@ -1,0 +1,12 @@
+body          { background-color: #FFFFFF }
+#stage        { display: block; margin: 0; padding: 0 2em; color: #000000 }
+
+/* override centered */
+#stage h1, h2, h3 { text-align: left; margin: 0 }
+#stage p          { text-align: left; margin: 0 }
+
+a                 { color: #499DFF }
+ul                { list-style-type: disc }
+
+em            { color: #49FF50 }
+strong        { color: #FFAB49; font-weight: bold }

@@ -266,9 +266,7 @@
           Shining.slides._loaded[name] = {};
           Shining.slides._loaded[name].markup = compileSlide(name, data);
           trigger('slideloaded', [name]);
-          if (data) {
-            loadSlideScript(name, afterLoad);
-          }
+          if (data) { loadSlideScript(name, afterLoad) };
         }
       );
     } else {
@@ -281,6 +279,7 @@
   }
 
   function playSlide(name) {
+    Shining.scripts.reap();
     var slide = Shining.slides._loaded[name];
     Shining.slides.current(name);
     $('#stage .contents').html(slide.markup);
@@ -303,6 +302,7 @@
   function loadSlideScript(name, afterLoad) {
     $.ajax({
       url: slidePath(slidePlusExtension(name, 'js')),
+      dataType: 'text',
       type: 'GET',
       success: function(script) { Shining.slides._loaded[name].script = script },
       complete: function()      { if ($.isFunction(afterLoad)) afterLoad.call() }

@@ -1,0 +1,16 @@
+<p class="centered">
+  <strong>Some</strong> setups don't allow a web app to write to the file system.
+  <a href="http://heroku.com">Heroku</a> being one of those.
+</p>
+<p>Now what?</p>
+<script type="syntaxhighlighter" class="brush: ruby">
+  use Rack::Bundle, :public_dir => 'path/to/public' do |rack_bundle|
+    rack_bundle.storage = Rack::Bundle::DatabaseStore.new
+  end
+</script>
+<ol>
+  <li>Rack::Bundle picks up your scripts/styles off the DOM <strong>once</strong>.</li>
+  <li>Puts them in a database table.</li>
+  <li>Intercepts requests for <strong>/rack-bundle-&lt;hash&gt;.&lt;js or css&gt;</strong>.</li>
+  <li>Then serves them straight from the database!</li>
+</ol>
